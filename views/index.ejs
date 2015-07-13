@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='EN' ng-app="timeSeries">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/cal-heatmap.css' />
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js'></script>
+    <script src="http://d3js.org/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src='/javascripts/cal-heatmap.js'></script>
+    <script type="text/javascript" src='/javascripts/app.js'></script>
+    <meta charset='UTF-8'>
+  </head>
+  <body ng-controller="AppController">
+    <h1><%= title %></h1>
+    <div class="menu">
+      Dataset <br>
+      <select name="series" ng-model="timeSeries" ng-change="dataSet()">
+        <option value="1" selected>Accidents</option>
+        <option value="2">Fires</option>
+      </select><br><br>
+      Numerical Measure <br>
+      <select name="types" ng-model="types" ng-change="dataType()">
+        <option value="a">Accidents</option>
+        <option value="fl">Minor Injuries</option>
+        <option value="fg">Major Injuries</option>
+        <option value="m">Deaths</option>
+      </select><br><br>
+      Granularity <br>
+      <select name="fold" ng-model="fold" ng-change="dataFold()">
+        <option value="hour">Hours</option>
+        <option value="day">Days</option>
+        <option value="week">Weeks</option>
+        <option value="month">Months</option>
+      </select><br><br>
+      Fold <br>
+      <select name="granularity" ng-model="granularity" ng-change="dataGranularity()">
+        <option value="day">Days</option>
+        <option value="week">Weeks</option>
+        <option value="month">Months</option>
+        <option value="year">Years</option>
+      </select><br><br>
+      Mapping <br>
+      <div name="mapping" ng-click="dataMapping()">
+        <input type="radio" ng-model="mapping" value="3">3
+        <input type="radio" ng-model="mapping" value="5">5
+        <input type="radio" ng-model="mapping" value="10">10
+      </div><br>
+      Search
+      <br>
+      <select multiple ng-model="search" ng-change="searchLocation()" size=19>
+        <option ng-repeat="l in locations">{{l}}</option>
+      </select>
+    </div>
+    <div class="graphs">
+      <div id="cal-heatmap"></div>
+    </div>
+  </body>
+</html>

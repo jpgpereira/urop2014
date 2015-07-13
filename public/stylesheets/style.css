@@ -1,0 +1,44 @@
+body {
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.menu {
+  margin-top: -25px;
+  padding: 10px;
+  float: left;
+  text-align: right;
+}
+
+.search {
+  text-align: right;
+  float: right;
+  margin-left: -100px;
+}
+
+.graph {
+  text-align: center;
+  margin: 10px 50px 0 50px;
+}
+
+#cal-heatmap {
+  margin-left: 200px;
+  margin-right:50px;
+  margin-bottom: 50px;
+  height: 1200px;
+  overflow: auto;
+}
+
+.cal-heatmap-container{
+  margin: 15px;
+}
